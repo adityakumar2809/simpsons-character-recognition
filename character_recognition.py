@@ -18,6 +18,15 @@ def main():
     # Sort in descending order
     char_dict = caer.sort_dict(char_dict, descending=True)
 
+    # Get top 10 characters 
+    characters = []
+    count = 0
+    for i in char_dict:
+        characters.append(i[0])
+        count += 1
+        if count >= 10:
+            break
+
 
 if __name__ == "__main__":
     main()
