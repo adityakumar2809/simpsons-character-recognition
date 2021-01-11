@@ -68,17 +68,27 @@ def main():
     )
 
     # Create a model
-    model = canaro.models.createSimpsonsModel(IMG_SIZE=IMG_SIZE,
-                                            channels=channels,
-                                            output_dim=len(characters),
-                                            loss='binary_crossentropy',
-                                            decay=1e-6,
-                                            learning_rate=0.001,
-                                            momentum=0.9,
-                                            nesterov=True
-                                            )
+    model = canaro.models.createSimpsonsModel(
+        IMG_SIZE=IMG_SIZE,
+        channels=channels,
+        output_dim=len(characters),
+        loss='binary_crossentropy',
+        decay=1e-6,
+        learning_rate=0.001,
+        momentum=0.9,
+        nesterov=True
+    )
 
     callbacks_list = [LearningRateScheduler(canaro.lr_schedule)]
+
+    training = model.fit(
+        train_gen,
+        steps_per_epoch=len(x_train)//BATCH_SIZE,
+        epochs=EPOCHS,
+        validation_data=(np.array(x_test), np.array(y_test)),
+        validation_steps=len(y_test)//BATCH_SIZE,
+        callbacks=callbacks_list
+    )
 
 
 if __name__ == "__main__":
