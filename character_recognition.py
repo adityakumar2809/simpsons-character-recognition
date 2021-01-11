@@ -102,6 +102,8 @@ def main():
 
     predictions = model.predict(prepare(img))
 
+    print(characters[np.argmax(predictions[0])])
+
 
 
 if __name__ == "__main__":
