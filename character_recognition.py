@@ -7,7 +7,9 @@ import numpy as np
 
 
 def main():
-    pass
+    IMG_SIZE = (80, 80)
+    channels = 1
+    char_path = r'../input/the-simpsons-characters-dataset/simpsons_dataset'
 
 
 if __name__ == "__main__":
