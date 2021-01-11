@@ -27,6 +27,15 @@ def main():
         if count >= 10:
             break
 
+    # Create the training data
+    train = caer.preprocess_from_dir(
+        char_path,
+        characters,
+        channels=channels,
+        IMG_SIZE=IMG_SIZE,
+        isShuffle=True
+    )
+
 
 if __name__ == "__main__":
     main()
