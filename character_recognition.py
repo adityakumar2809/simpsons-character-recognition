@@ -50,6 +50,11 @@ def main():
         val_ratio=0.2
     )
 
+    del train
+    del featureSet
+    del labels
+    gc.collect()
+
 
 if __name__ == "__main__":
     main()
