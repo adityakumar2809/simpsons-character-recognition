@@ -36,6 +36,9 @@ def main():
         isShuffle=True
     )
 
+    # Separate feature set and labels
+    featureSet, labels = caer.sep_train(train, IMG_SIZE=IMG_SIZE)
+
 
 if __name__ == "__main__":
     main()
