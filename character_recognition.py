@@ -44,6 +44,12 @@ def main():
     featureSet = caer.normalize(featureSet)
     labels = to_categorical(labels, len(characters))
 
+    x_train, x_test, y_train, y_test = caer.train_val_split(
+        featureSet,
+        labels,
+        val_ratio=0.2
+    )
+
 
 if __name__ == "__main__":
     main()
