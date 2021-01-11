@@ -58,6 +58,14 @@ def main():
     BATCH_SIZE = 32
     EPOCHS = 10
 
+    # Create new data generator
+    data_gen = canaro.generators.imageDataGenerator()
+    train_gen = data_gen.flow(
+        np.array(x_train),
+        np.array(y_train),
+        batch_size=BATCH_SIZE
+    )
+
 
 if __name__ == "__main__":
     main()
