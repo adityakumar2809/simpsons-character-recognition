@@ -4,6 +4,7 @@ import cv2
 import caer
 import canaro
 import numpy as np
+from tensorflow.keras.utils import to_categorical
 
 
 def main():
@@ -38,6 +39,10 @@ def main():
 
     # Separate feature set and labels
     featureSet, labels = caer.sep_train(train, IMG_SIZE=IMG_SIZE)
+
+    # Normalize the featureSet in (0, 1)
+    featureSet = caer.normalize(featureSet)
+    labels = to_categorical(labels, len(characters))
 
 
 if __name__ == "__main__":
