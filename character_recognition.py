@@ -55,6 +55,9 @@ def main():
     del labels
     gc.collect()
 
+    BATCH_SIZE = 32
+    EPOCHS = 10
+
 
 if __name__ == "__main__":
     main()
