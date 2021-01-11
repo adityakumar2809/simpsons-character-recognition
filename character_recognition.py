@@ -5,6 +5,7 @@ import caer
 import canaro
 import numpy as np
 from tensorflow.keras.utils import to_categorical
+from tensorflow.keras.callbacks import LearningRateScheduler
 
 
 def main():
@@ -76,6 +77,8 @@ def main():
                                             momentum=0.9,
                                             nesterov=True
                                             )
+
+    callbacks_list = [LearningRateScheduler(canaro.lr_schedule)]
 
 
 if __name__ == "__main__":
