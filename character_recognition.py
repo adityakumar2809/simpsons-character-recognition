@@ -97,6 +97,9 @@ def main():
         callbacks=callbacks_list
     )
 
+    test_path = r'../input/the-simpsons-characters-dataset/kaggle_simpson_testset/kaggle_simpson_testset/charles_montgomery_burns_0.jpg'
+    img = cv2.imread(test_path)
+
 
 
 if __name__ == "__main__":
