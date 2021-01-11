@@ -8,6 +8,13 @@ from tensorflow.keras.utils import to_categorical
 from tensorflow.keras.callbacks import LearningRateScheduler
 
 
+def prepare(img):
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    img = cv2.resize(img, IMG_SIZE)
+    img = caer.reshape(img, IMG_SIZE, 1)
+    return img
+
+
 def main():
     IMG_SIZE = (80, 80)
     channels = 1
@@ -89,6 +96,7 @@ def main():
         validation_steps=len(y_test)//BATCH_SIZE,
         callbacks=callbacks_list
     )
+
 
 
 if __name__ == "__main__":
